@@ -1,11 +1,13 @@
 package br.com.lrsantos.model.beans;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(schema="rendimento" , name="beneficiario")
@@ -17,12 +19,15 @@ public class Beneficiario {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_ID_BENEFICIARIO")
 	private Integer id;
 	
+	@NotNull
 	private String matricula;
 	
+	@NotNull
 	private String cpf;
 	
 	private String nome;
 	
+	@Column
 	private byte[] comprovante;
 
 	public Integer getId() {
